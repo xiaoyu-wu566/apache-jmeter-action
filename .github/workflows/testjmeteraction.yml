@@ -19,24 +19,14 @@ jobs:
       - name: Lint all YAML files in the directory
         uses: ibiqlik/action-yamllint@master
 
-      - name: Run JMeter Action
-        uses: ./
-        with:
-          testFilePath: tests/sample_test.jmx
-          outputReportsFolder: reports/
-          args: "--loglevel INFO"
 
       - name: Run More Than One JMeter Action
         uses: ./
         with:
-          testFilePath: tests/
+          testFilePath: tests/test/
           outputReportsFolder: reports/
           args: "--loglevel INFO"
 
-      - uses: actions/upload-artifact@v1
-        with:
-          name: jmeter-test-results
-          path: reports/
 
   image_scan:
     needs: action_build
