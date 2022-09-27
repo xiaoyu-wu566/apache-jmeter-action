@@ -33,9 +33,9 @@ then
   jmeter -n -t $TESTFILE_PATH $@
   status=$?
 else
-  BASEFILE_PATH=$($TESTFILE_PATH)
+#  BASEFILE_PATH=$(TESTFILE_PATH)
   echo "Folder specified - Running each JMX File In Folder"
-  for FILE in $BASEFILE_PATH/*.jmx
+  for FILE in $TESTFILE_PATH/*.jmx
   do
     echo "Running test with $FILE"
     jmeter -n -t $FILE $@
